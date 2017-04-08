@@ -1,0 +1,18 @@
+/*----reset----*/
+*{margin:0;padding:0;}
+a{text-decoration: none}
+.on{background: #efa116}
+/*----container----*/
+.container{position: relative;width: 750px;height: 500px;border:10px solid #e9cb5f;overflow:hidden;}
+/*----Carousel----*/
+.Carousel{position:absolute;left: -750px;width:5250px;height: 500px;}
+.Carousel img{float:left;width: 750px;height: 500px;}
+.Carousel:after{content: "";clear: both}
+/*----btn_sider----*/
+.btn_next{position:absolute;top:200px;right:20px;width: 100px;height: 100px;background: url("../images/btn_next.png") no-repeat center center;opacity: 0;}
+.btn_previous{position:absolute;top:200px;left:20px;width: 100px;height: 100px;background: url("../images/btn_previous.png") no-repeat center center;opacity: 0;}
+/*----btn_bottom----*/
+.btn_bottom{position:absolute;bottom:10px;width:750px;height: 45px;text-align: center}
+.btn_bottom a{ display:inline-block;margin:0 15px;width: 20px;height: 20px;content:'';border:8px solid #7e4b82;border-radius: 50%}
+/*----hover----*/
+.container:hover .btn_sider *{opacity: 1.0}

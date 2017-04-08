@@ -1,0 +1,142 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+input[type='radio'] {
+	display: none;
+}
+#container{
+	position: relative;
+	width: 900px;
+	height: 500px;
+	margin: 50px auto;
+}
+#carousel{
+	position: relative;
+	width: inherit;
+	height: inherit;
+	border: 8px solid #eee;
+	border-radius: 8px;
+	box-shadow: 0 7px 20px rgba(0,0,0,.5);
+	overflow: hidden;
+	background-color: #eee;
+}
+.img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: inherit;
+	height: inherit;
+	overflow: hidden;
+}
+#img1 .card {background-image: url(../images/1.jpg);}
+#img2 .card {background-image: url(../images/2.jpg);}
+#img3 .card {background-image: url(../images/3.jpg);}
+#img4 .card {background-image: url(../images/4.jpg);}
+#img5 .card {background-image: url(../images/5.jpg);}
+
+/*百叶窗特效来了！*/
+.card{
+	float: left;
+	z-index: 0;
+	width: 150px; /*6个card平分一个图片，平均150px*/
+	height: inherit;
+	opacity: 0;
+	transform-origin: center right;
+	-webkit-transform: rotateY(90deg);
+			transform: rotateY(90deg);
+	-webkit-transition: transform .7s, opacity .5s;
+			transition: transform .7s, opacity .5s;
+}
+.img .card2{
+	background-position: -150px 0;
+	transition-delay: .2s;
+}
+.img .card3{
+	background-position: -300px 0;
+	transition-delay: .4s;
+}
+.img .card4{
+	background-position: -450px 0;
+	transition-delay: .6s;
+}
+.img .card5{
+	background-position: -600px 0;
+	transition-delay: .8s;
+}
+.img .card6{
+	background-position: -750px 0;
+	transition-delay: 1s;
+}
+#control1:checked ~ #carousel #img1 .card,
+#control2:checked ~ #carousel #img2 .card,
+#control3:checked ~ #carousel #img3 .card,
+#control4:checked ~ #carousel #img4 .card,
+#control5:checked ~ #carousel #img5 .card{
+	transform: rotateY(0);
+	opacity: 1;
+	z-index: 1;
+}
+
+/*侧栏按钮*/
+#sideControl label{
+	display: block;
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+	opacity: .2;
+	-webkit-transition: .1s;
+			transition: .1s;
+}
+#control1:checked ~ #sideControl label:nth-of-type(2),
+#control2:checked ~ #sideControl label:nth-of-type(3),
+#control3:checked ~ #sideControl label:nth-of-type(4),
+#control4:checked ~ #sideControl label:nth-of-type(5),
+#control5:checked ~ #sideControl label:nth-of-type(1) {
+	left: 940px;
+	border-bottom: 30px solid transparent;
+	border-top: 30px solid transparent;
+	border-left: 40px solid #000;
+}
+#control1:checked ~ #sideControl label:nth-of-type(5),
+#control2:checked ~ #sideControl label:nth-of-type(1),
+#control3:checked ~ #sideControl label:nth-of-type(2),
+#control4:checked ~ #sideControl label:nth-of-type(3),
+#control5:checked ~ #sideControl label:nth-of-type(4) {
+	left: -60px;
+	border-bottom: 30px solid transparent;
+	border-top: 30px solid transparent;
+	border-right: 40px solid #000;
+}
+#sideControl label:hover{
+	opacity: .8;
+}
+
+/*底部按钮*/
+#bottomControl{
+	position: absolute;
+	bottom: -50px;
+	left: 50%;
+	margin-left: -100px; 
+}
+#bottomControl label{
+	display: block;
+	height: 10px;
+	width: 30px;
+	float: left;
+	background-color: #000;
+	margin-right: 10px;
+	cursor: pointer;
+	opacity: .2;
+	-webkit-transition:opacity: .5s;
+			 transition:opacity .5s;
+}
+#bottomControl label:hover,
+#control1:checked ~ #bottomControl label:nth-of-type(1),
+#control2:checked ~ #bottomControl label:nth-of-type(2),
+#control3:checked ~ #bottomControl label:nth-of-type(3),
+#control4:checked ~ #bottomControl label:nth-of-type(4),
+#control5:checked ~ #bottomControl label:nth-of-type(5) {
+	opacity: .6;
+}

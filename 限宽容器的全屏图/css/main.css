@@ -1,0 +1,65 @@
+
+*{
+	padding:0;
+	margin:0;
+	border:none;
+}
+html, body{
+	display:block;
+	width:100vw;
+	overflow-x: hidden;
+}
+.container{
+	width:960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.box1 .container{
+	width:100%;
+}
+.box1 img{
+	width:100%;
+	max-height: 250px;
+	max-width:100%;
+}
+
+.box2 .full-width{
+	position: relative;
+	width: 100vw; 
+	left: 50%; 
+	right: 50%; 
+	margin-left: -50vw; 
+	margin-right: -50vw;
+}
+.box2 .full-width img{
+	width:100%;
+	max-width:100%;
+	max-height:250px;
+}
+
+.box3 .full-width{
+	width: 100vw;
+	transform: translateX(calc( (960px - 100vw) / 2));
+}
+.box3 .full-width img{
+	width: 100%;
+	max-height: 250px;
+	max-width: 100%;
+}
+
+.box4 .full-width{
+	width: 100vw;
+	margin-left: calc( (960px - 100vw) / 2);
+}
+.box4 .full-width img{
+	width: 100%;
+	max-height: 250px;
+	max-width: 100%;
+}
+
+.box1, .box2, .box3, .box4 {margin-top: 50px;}
+
+		@media(max-width:960px){ .container{ width:720px; margin-left: auto; margin-right: auto;} }
+		@media(max-width:719px){ .container{ width:560px; margin-left: auto; margin-right: auto;} }
+		@media(max-width:559px){ .container{ width:480px; margin-left: auto; margin-right: auto;} }

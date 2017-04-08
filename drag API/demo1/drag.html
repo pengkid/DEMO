@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8" />
+    <title>飞啊飞啊我的骄傲放纵</title>
+    <style>
+        html, body{
+            position: relative;
+            display: block;
+            margin:0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        img{
+            z-index: 100;
+            position:absolute;
+            width:300px;
+            height:300px;
+            min-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h3 draggable="true">鹏仔也会飞</h3>
+    <img id="pengkid" src="favicon.jpg"  alt="" draggable="true" />
+<script>
+    pengkid.ondragstart = function(e){
+        console.log('事件源开始拖动');
+        //记录刚一拖动时，鹏仔在屏幕上的偏移量
+        offsetX = e.offsetX;
+        offsetY = e.offsetY;
+
+        winW = document.body.clientWidth || document.documentElement.clientWidth;
+        winH = document.body.clientHeight || document.documentElement.clientHeight;
+
+        maxW = winW - pengkid.offsetWidth;
+        maxH = winH - pengkid.offsetHeight;
+    }
+    pengkid.ondrag = function(e){
+        console.log('事件源拖动中');
+        var x = e.clientX;
+        var y = e.clientY;
+        
+        x -= offsetX;
+        y -= offsetY;
+        if(x>=maxW) {x = maxW} else if(x<=0) {x=0};
+        if(y>=maxH) {y = maxH} else if(y<=0) {y=0};
+        if(x==0 && y==0) return; //drag事件最后一刻，无法读取鼠标的坐标，pageX和pageY都变为0
+
+        pengkid.style.left = x +'px';
+        pengkid.style.top = y +'px';
+    }
+    pengkid.ondragend = function(){
+        console.log('源对象拖动结束');
+    }
+</script>
+</body>
+</html>
